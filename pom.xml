@@ -17,7 +17,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <base.api.url>https://reqres.in/api/users</base.api.url>
+        <base.api.url>https://product-offering-qualification-customer-dmain-bs-ar.apps.osen02.claro.amx/</base.api.url>
         <cucumber.stepsDefinitions>--glue ar/steps --glue com/crowdar/api/rest</cucumber.stepsDefinitions>
         <cucumber.hooks>--glue com/crowdar/bdd/cukes --glue ar/apiExampleProject/hook</cucumber.hooks>
 		<cucumber.tags>@Success</cucumber.tags>
@@ -27,6 +27,34 @@
 
     </properties>
     <profiles>
+        <profile>
+            <id>Argentina</id>
+            <activation>
+            </activation>
+            <properties>
+                <apiExample.runner>testng.xml</apiExample.runner>
+                <base.api.url>https://product-offering-qualification-customer-dmain-bs-ar.apps.osen02.claro.amx/</base.api.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>Paraguay</id>
+            <activation>
+            </activation>
+            <properties>
+                <apiExample.runner>testng.xml</apiExample.runner>
+                <base.api.url>https://product-offering-qualification-customer-dmain-bs-py.apps.osen02.claro.amx/</base.api.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>Uruguay</id>
+            <activation>
+            </activation>
+            <properties>
+                <apiExample.runner>testng.xml</apiExample.runner>
+                <base.api.url>https://product-offering-qualification-customer-dmain-bs-uy.apps.osen02.claro.amx/</base.api.url>
+            </properties>
+        </profile>
+
         <profile>
             <id>Secuencial</id>
             <activation>
@@ -60,6 +88,20 @@
             <groupId>io.lippia.report</groupId>
             <artifactId>extentreports-cucumber4-adapter</artifactId>
             <version>1.1.0.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.claro.automation</groupId>
+            <artifactId>aut-lineas-pruebas</artifactId>
+            <version>1.17.2-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}\src\test\resources\lib\aut-lineas-pruebas-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.sp.ta.tecno</groupId>
+            <artifactId>ApisTecnotree</artifactId>
+            <version>2.0.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}\src\test\resources\lib\aut-tecno-apis-1.0.0.jar</systemPath>
         </dependency>
     </dependencies>
     <build>

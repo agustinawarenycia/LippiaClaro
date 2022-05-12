@@ -1,13 +1,13 @@
 package api.config;
 
-import services.UserService;
+import services.PromoPlusService;
 
 public enum EntityConfiguration {
 
-    USER {
+    PROMOPLUS {
         @Override
         public Class<?> getEntityService() {
-            return UserService.class;
+            return PromoPlusService.class;
         }
     };
 
