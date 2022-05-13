@@ -2,13 +2,19 @@ package ar.steps;
 
 import api.config.EntityConfiguration;
 import ar.Validator.PromoValidator;
+import ar.apiExampleProject.Hooks;
+import com.claro.sp.automation.objetosPrepago.Properties;
 import com.claro.sp.automation.testCellulars.controller.CellularController;
 import com.claro.sp.tecnoapis.model.subscriber.Cellular;
 import com.crowdar.core.PageSteps;
+import gherkin.ast.Scenario;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import com.google.api.client.repackaged.com.google.common.base.Splitter;
 import cucumber.api.java.en.When;
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import services.BaseService;
 
@@ -16,10 +22,15 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
 import static com.sp.ta.tecno.UpdateSubscriber.updateSubscriber;
+import static services.BaseService.cellular;
 
-public class PromoPlusSteps extends PageSteps {
+public class PromoPlusSteps  {
     private static CellularController controller;
     static String billNumber = null;
+    CellularController cellularController = new CellularController("TEST", "AR", "ghct", "auto_333", "ghct", "auto_333");
+
+    public PromoPlusSteps() throws Exception {
+    }
 
 
     @When("^I perform a '(.*)' to '(.*)' endpoint with the '(.*)' and '(.*)'$")

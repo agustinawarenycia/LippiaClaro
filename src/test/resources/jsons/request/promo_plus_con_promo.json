@@ -1,45 +1,45 @@
 {
-  "url": "{{base.url}}",
+  "url": "https://product-offering-qualification-customer-dmain-bs-ar.apps.osen02.claro.amx",
   "headers": {
     "Content-Type": "application/json"
   },
   "body":
-{
-  "description":"Product Offering Qualification -  {{linea}}",
-  "instantSyncQualification":true,
-  "provideAlternative":true,
-  "provideOnlyAvailable":true,
-  "provideUnavailabilityReason":true,
-  "category":{"id":"FUNDS_CREDITS_RECHARGE"},
-  "channel":{"id":"IRIS"},
-  "note":[{"id":"Session-Id","text":"Iris-123456789"}],
-  "place":[{"id":"AR","role":"COUNTRY"}],
-  "productOfferingQualificationItem":[
-    {
-      "id":"1",
-      "action":"add",
-      "product":{
-        "id":300.0,
-        "productPrice":[
-          {
-            "priceType":"EVENTUAL",
-            "price":{
-              "taxIncludedAmount":{
-                "unit":"ARS",
-                "value":"{{monto}}"
+  {
+    "description":"Product Offering Qualification -  3512077220",
+    "instantSyncQualification":true,
+    "provideAlternative":true,
+    "provideOnlyAvailable":true,
+    "provideUnavailabilityReason":true,
+    "category":{"id":"FUNDS_CREDITS_RECHARGE"},
+    "channel":{"id":"IRIS"},
+    "note":[{"id":"Session-Id","text":"Lucho-123456789"}],
+    "place":[{"id":"AR","role":"COUNTRY"}],
+    "productOfferingQualificationItem":[
+      {
+        "id":"1",
+        "action":"add",
+        "product":{
+          "id":300.0,
+          "productPrice":[
+            {
+              "priceType":"EVENTUAL",
+              "price":{
+                "taxIncludedAmount":{
+                  "unit":"ARS",
+                  "value":500.0
+                }
               }
             }
-          }
-        ]
+          ]
+        }
       }
-    }
-  ],
-  "relatedParty":[
-    {
-      "id":"{{linea}}",
-      "role":"cliente"
-    }
-  ]
-},
-  "endpoint": "tmf-api/productOfferingQualification/v4"
+    ],
+    "relatedParty":[
+      {
+        "id":"3512074809",
+        "role":"cliente"
+      }
+    ]
+  },
+  "endpoint": "/tmf-api/productOfferingQualification/v4/productOfferingQualification"
 }

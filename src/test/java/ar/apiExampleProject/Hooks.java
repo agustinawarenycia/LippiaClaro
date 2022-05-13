@@ -6,14 +6,25 @@ import io.cucumber.java.*;
 import org.apache.log4j.Logger;
 import services.BaseService;
 
-public class Hooks extends BaseService  {
+import static services.BaseService.cellular;
+
+public class Hooks {
     CellularController cellularController = new CellularController("TEST", "AR", "ghct", "auto_333", "ghct", "auto_333");
 
     public Hooks() throws Exception {
     }
 
-
-    @Before()
+    //    @Before()
+//    public void setScenario(Scenario scenario) {
+//        Logger.getRootLogger().info("-----------" + scenario.getName() + "-----------");
+//    }
+//
+//    @After()
+//    public void dismissAll(Scenario scenario) {
+//        Logger.getRootLogger().info(" ending -----------" + scenario.getName() + "-----------");
+//
+//    }
+    @Before
     public void setScenario(Scenario scenario) {
         Logger.getRootLogger().info("-----------" + scenario.getName() + "-----------");
         System.out.println("--------------------------------------------------------------");
@@ -26,7 +37,7 @@ public class Hooks extends BaseService  {
         System.out.println("--------------------------------------------------------------");
     }
 
-    @After()
+    @After
     public void dismissAll(Scenario scenario) throws Exception {
         Logger.getRootLogger().info(" ending -----------" + scenario.getName() + "-----------");
         String billNumber = cellular.getBillNumber();

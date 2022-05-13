@@ -17,12 +17,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <base.api.url>https://product-offering-qualification-customer-dmain-bs-ar.apps.osen02.claro.amx/</base.api.url>
-        <cucumber.stepsDefinitions>--glue ar/steps --glue com/crowdar/api/rest</cucumber.stepsDefinitions>
+        <base.api.url>https://reqres.in/api/users</base.api.url>
+        <cucumber.stepsDefinitions>--glue ar/steps</cucumber.stepsDefinitions>
         <cucumber.hooks>--glue com/crowdar/bdd/cukes --glue ar/apiExampleProject/hook</cucumber.hooks>
-		<cucumber.tags>@Success</cucumber.tags>
-        <crowdar.cucumber.plugins>--plugin pretty --plugin api.report.CucumberReporter:</crowdar.cucumber.plugins>
-		<crowdar.cucumber.option>src/test/resources/features ${cucumber.hooks} ${cucumber.stepsDefinitions} --tags 'not @Ignore' --tags ${cucumber.tags} ${crowdar.cucumber.plugins}</crowdar.cucumber.option>
+        <cucumber.tags>@Success</cucumber.tags>
+        <cucumber.reporters>--plugin pretty</cucumber.reporters>
+        <crowdar.cucumber.option>src/test/resources/features ${cucumber.hooks} ${cucumber.stepsDefinitions} --glue com/crowdar --tags 'not @Ignore' --tags ${cucumber.tags} ${cucumber.reporters}</crowdar.cucumber.option>
         <crowdar.projectType>API</crowdar.projectType>
 
     </properties>
@@ -33,7 +33,7 @@
             </activation>
             <properties>
                 <apiExample.runner>testng.xml</apiExample.runner>
-                <base.api.url>https://product-offering-qualification-customer-dmain-bs-ar.apps.osen02.claro.amx/</base.api.url>
+                <base.api.url>https://product-offering-qualification-customer-dmain-bs-ar.apps.osen02.claro.amx</base.api.url>
             </properties>
         </profile>
         <profile>
@@ -61,12 +61,22 @@
             </activation>
             <properties>
                 <apiExample.runner>testng.xml</apiExample.runner>
+                <base.api.url>https://product-offering-qualification-customer-dmain-bs-ar.apps.osen02.claro.amx/</base.api.url>
+            </properties>
+        </profile>
+        <profile>
+            <id>Local</id>
+            <activation>
+            </activation>
+            <properties>
+                <apiExample.runner>testng.xml</apiExample.runner>
+                <base.api.url>https://api.clockify.me/api/v1</base.api.url>
             </properties>
         </profile>
         <profile>
             <id>Paralelo</id>
             <activation>
-            	<activeByDefault>true</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <apiExample.runner>testngParalell.xml</apiExample.runner>
@@ -75,19 +85,9 @@
     </profiles>
     <dependencies>
         <dependency>
-	        <groupId>io.lippia</groupId>
-	        <artifactId>core</artifactId>
-	        <version>3.2.3.8</version>
-        </dependency>
-        <dependency>
-            <groupId>io.lippia.report</groupId>
-            <artifactId>cucumber4-adapter</artifactId>
-            <version>1.7.1</version>
-        </dependency>
-        <dependency>
-            <groupId>io.lippia.report</groupId>
-            <artifactId>extentreports-cucumber4-adapter</artifactId>
-            <version>1.1.0.10</version>
+            <groupId>io.lippia</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <dependency>
             <groupId>com.claro.automation</groupId>
@@ -104,35 +104,34 @@
             <systemPath>${project.basedir}\src\test\resources\lib\aut-tecno-apis-1.0.0.jar</systemPath>
         </dependency>
     </dependencies>
+
+
+
+
     <build>
         <filters>
             <filter>src/main/resources/cucumber.properties</filter>
         </filters>
         <plugins>
             <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M4</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M4</version>
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>${apiExample.runner}</suiteXmlFile>
                     </suiteXmlFiles>
-                    <systemPropertyVariables>
-						<LIPPIA_RS_API_HOST>https://rsapi.automation.crowdaronline.com</LIPPIA_RS_API_HOST>
-	                    <LIPPIA_RS_PROJECT_NAME>API Sample</LIPPIA_RS_PROJECT_NAME>
-	                    <LIPPIA_RS_REPORT_NAME>Local - build</LIPPIA_RS_REPORT_NAME>
-                	</systemPropertyVariables>
                 </configuration>
             </plugin>
         </plugins>
     </build>
     <repositories>
-		<repository>
-			<id>crowdarRepo</id>
-			<name>crowdar-repository</name>
-			<url>https://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
-		</repository>
-	</repositories>
-    
+        <repository>
+            <id>crowdarRepo</id>
+            <name>crowdar-repository</name>
+            <url>https://nexus-v3-repositories.automation.crowdaronline.com/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
 
 </project>
