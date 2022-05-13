@@ -24,7 +24,7 @@ import java.util.Map;
 import static com.sp.ta.tecno.UpdateSubscriber.updateSubscriber;
 import static services.BaseService.cellular;
 
-public class PromoPlusSteps  {
+public class PromoPlusSteps extends PageSteps  {
     private static CellularController controller;
     static String billNumber = null;
     CellularController cellularController = new CellularController("TEST", "AR", "ghct", "auto_333", "ghct", "auto_333");
